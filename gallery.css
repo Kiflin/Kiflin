@@ -1,7 +1,7 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -14,20 +14,46 @@ body {
 .title {
   text-align: center;
   font-size: 36px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
+/* Masonry gallery */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  max-width: 1200px;
+  column-count: 3;
+  column-gap: 25px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 .gallery img {
   width: 100%;
-  height: auto;        /* let image keep its ratio */
+  height: auto;
+  margin-bottom: 25px;
   display: block;
   border-radius: 10px;
+   pointer-events: none;
+  user-select: none;
+   background-image: url("watermark.png");
+}
+
+/* Hover effect (optional) */
+.gallery img:hover {
+  opacity: 0.85;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .gallery {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    column-count: 1;
+  }
 }
